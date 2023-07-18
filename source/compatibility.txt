@@ -3,13 +3,12 @@
 Compatibility
 =============
 
-.. contents:: On this page
+.. contents:: On this page autobuilder
    :local:
    :backlinks: none
    :depth: 2
    :class: singlecol
 
-sdasd
 MongoDB Compatibility
 ---------------------
 

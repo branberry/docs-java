@@ -1,5 +1,4 @@
 .. _java-compatibility-tables:
-TESTING
 =============
 Compatibility
 =============

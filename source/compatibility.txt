@@ -3,7 +3,7 @@
 Compatibility
 =============
 
-.. contents:: On this page autobuilder
+.. contents:: On this page autobuilder test
    :local:
    :backlinks: none
    :depth: 2

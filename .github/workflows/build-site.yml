@@ -14,10 +14,10 @@ jobs:
         run: echo "/opt/snooty" >> $GITHUB_PATH
       - name: Run parser
         run: snooty build . --output=./bundle.zip
-        env:
-          NPM_BASE_64_AUTH: ${{ secrets.NPM_AUTH}}
-          NPM_EMAIL: ${{secrets.NPM_EMAIL}}
       - name: Build HTML
+        env:
+          NPM_BASE_64_AUTH: ${{secrets.NPM_AUTH}}
+          NPM_EMAIL: ${{secrets.NPM_EMAIL}}
         run: |
           git clone -b v0.16.13 --depth 1 https://github.com/mongodb/snooty.git 
           echo GATSBY_MANIFEST_PATH=$(pwd)/bundle.zip >> ./snooty/.env.production

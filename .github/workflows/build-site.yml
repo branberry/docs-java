@@ -20,7 +20,6 @@ jobs:
         run: |
           git clone -b v0.16.13 --depth 1 https://github.com/mongodb/snooty.git 
           echo GATSBY_MANIFEST_PATH=$(pwd) >> ./snooty/.env.production
-          echo "//artifactory.corp.mongodb.com/artifactory/api/npm/:_authToken=${{ secrets.NPM_AUTH}}" >> .npmrc                                                                
           echo "//artifactory.corp.mongodb.com/artifactory/api/npm/:_auth=${{ secrets.NPM_AUTH}}" >> .npmrc       
           cd snooty                
           npm ci --legacy-peer-deps

@@ -15,12 +15,12 @@ jobs:
       - name: Run parser
         run: snooty build . --output=./bundle.zip
         env:
-          NPM_AUTH: ${{ secrets.NPM_AUTH}}
+          NPM_BASE_64_AUTH: ${{ secrets.NPM_AUTH}}
+          NPM_EMAIL: ${{secrets.NPM_EMAIL}}
       - name: Build HTML
         run: |
           git clone -b v0.16.13 --depth 1 https://github.com/mongodb/snooty.git 
-          echo GATSBY_MANIFEST_PATH=$(pwd) >> ./snooty/.env.production
-          echo "//artifactory.corp.mongodb.com/artifactory/api/npm/:_auth=${{ secrets.NPM_AUTH}}" >> .npmrc       
+          echo GATSBY_MANIFEST_PATH=$(pwd)/bundle.zip >> ./snooty/.env.production
           cd snooty                
           npm ci --legacy-peer-deps
           npm run build

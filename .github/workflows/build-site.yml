@@ -13,9 +13,9 @@ jobs:
         uses: actions/cache/restore@v4
         with:
           path: |
-            .snooty-*
-            .cache
-            public
+            *.cache.gz
+            .cache/
+            public/
           key: ${{runner.os}}-site-cache
       - name: Install parser
         run: |
@@ -58,7 +58,7 @@ jobs:
         uses: actions/cache/save@v4
         with:
           path: |
-            .snooty-*
-            .cache
-            public
+            *.cache.gz
+            .cache/
+            public/
           key: ${{ steps.cache.outputs.cache-primary-key }}

@@ -25,13 +25,17 @@ jobs:
         run: echo "/opt/snooty" >> $GITHUB_PATH
       - name: Run parser
         run: snooty build . --output=./bundle.zip
+
       - name: Build HTML
         env:
           NPM_BASE_64_AUTH: ${{secrets.NPM_AUTH}}
           NPM_EMAIL: ${{secrets.NPM_EMAIL}}
+        if: steps.cache.outputs.cache-hit != 'true'
         run: |
           git clone -b v0.16.14 --depth 1 https://github.com/mongodb/snooty.git 
           echo GATSBY_MANIFEST_PATH=$(pwd)/bundle.zip >> ./snooty/.env.production
+      - name: Build HTML
+        run: |
           cd snooty                
           npm ci --legacy-peer-deps
           git clone --depth 1 https://github.com/mongodb/docs-tools.git
@@ -61,6 +65,5 @@ jobs:
         with:
           path: |
             *.cache.gz
-            .cache/
-            public/
+            snooty/
           key: ${{ steps.cache.outputs.cache-primary-key }}

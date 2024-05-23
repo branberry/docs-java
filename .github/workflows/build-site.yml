@@ -35,13 +35,13 @@ jobs:
           echo GATSBY_MANIFEST_PATH=$(pwd)/bundle.zip >> ./snooty/.env.production
           cd snooty                
           npm ci --legacy-peer-deps
-      - name: Build HTML
-        run: |
-          cd snooty                
           git clone --depth 1 https://github.com/mongodb/docs-tools.git
           mkdir -p ./static/images
           mv ./docs-tools/themes/mongodb/static ./static/docs-tools
           mv ./docs-tools/themes/guides/static/images/bg-accent.svg ./static/docs-tools/images/bg-accent.svg
+      - name: Build HTML
+        run: |
+          cd snooty                
           npm run build
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v3.0

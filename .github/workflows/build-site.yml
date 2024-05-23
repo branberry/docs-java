@@ -14,8 +14,7 @@ jobs:
         with:
           path: |
             *.cache.gz
-            .cache/
-            public/
+            snooty/
           key: ${{runner.os}}-site-cache
       - name: Install parser
         run: |

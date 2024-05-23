@@ -26,19 +26,19 @@ jobs:
       - name: Run parser
         run: snooty build . --output=./bundle.zip
 
-      - name: Build HTML
+      - name: Install frontend
         env:
           NPM_BASE_64_AUTH: ${{secrets.NPM_AUTH}}
           NPM_EMAIL: ${{secrets.NPM_EMAIL}}
         if: steps.cache.outputs.cache-hit != 'true'
         run: |
           git clone -b v0.16.14 --depth 1 https://github.com/mongodb/snooty.git 
+          echo GATSBY_MANIFEST_PATH=$(pwd)/bundle.zip >> ./snooty/.env.production
           cd snooty                
           npm ci --legacy-peer-deps
       - name: Build HTML
         run: |
           cd snooty                
-          echo GATSBY_MANIFEST_PATH=$(pwd)/bundle.zip >> ./snooty/.env.production
           git clone --depth 1 https://github.com/mongodb/docs-tools.git
           mkdir -p ./static/images
           mv ./docs-tools/themes/mongodb/static ./static/docs-tools

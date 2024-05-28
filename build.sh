@@ -3,4 +3,4 @@ unzip -d ./snooty-parser snooty-parser.zip
 
 echo RUNNING PARSER!
 
-sh ./snooty-parser/snooty build .
+./snooty-parser/snooty build .

@@ -14,3 +14,4 @@ git clone --depth 1 https://github.com/mongodb/docs-tools.git ./snooty/docs-tool
 mkdir -p ./snooty/static/images
 mv ./snooty/docs-tools/themes/mongodb/static ./static/docs-tools
 mv ./snooty/docs-tools/themes/guides/static/images/bg-accent.svg ./static/docs-tools/images/bg-accent.svg
+cd snooty && npm run build

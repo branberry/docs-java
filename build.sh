@@ -5,4 +5,4 @@ echo RUNNING PARSER!
 
 ls -l ./snooty-parser
 chmod +x ./snooty-parser/snooty
-/bin/bash ./snooty-parser/snooty build .
+/bin/bash ./snooty-parser/snooty 'build .'

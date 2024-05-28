@@ -3,4 +3,6 @@ unzip -d ./snooty-parser snooty-parser.zip
 
 echo RUNNING PARSER!
 
+ls -a ./snooty-parser
+chmod +x ./snooty-parser/snooty
 ./snooty-parser/snooty build .

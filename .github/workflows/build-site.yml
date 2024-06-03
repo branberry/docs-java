@@ -1,6 +1,7 @@
 on: push
 name: Build site
 jobs:
+  permissions: write-all
   build-site:
     runs-on: ubuntu-latest
     steps:

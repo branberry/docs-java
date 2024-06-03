@@ -2,4 +2,5 @@
 [[redirects]]
 from = "/*"
 to = "/fundamentals/stable-api"
+force = true
 status = 301

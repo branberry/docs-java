@@ -1,6 +1,5 @@
 # Redirect with a 301
 [[redirects]]
-from = "/*"
+from = "/fundamentals/versioned-api"
 to = "/fundamentals/stable-api"
-force = true
 status = 301
